@@ -8,7 +8,8 @@ module.exports = {
     extensions: ['.js', '.ts', '.tsx'],
   },
   module: {
-    rules: [{
+    rules: [
+      {
         test: /\.tsx?$/,
         loader: 'babel-loader',
         exclude: /node_modules/,
@@ -17,12 +18,7 @@ module.exports = {
         test: /\.css$/,
         use: [
           MiniCssExtractPlugin.loader,
-          {
-            loader: 'css-loader',
-            options: {
-              modules: true
-            }
-          },
+          { loader: 'css-loader', options: { modules: true } },
         ],
       },
     ],

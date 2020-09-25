@@ -9,11 +9,9 @@
     "skipLibCheck": true,
     "jsx": "react",
     "sourceMap": true,
-    "resolveJsonModule": true,
     "moduleResolution": "Node",
-    "plugins": [{
-      "name": "typescript-plugin-css-modules"
-    }],
+    "resolveJsonModule": true,
+    "plugins": [{ "name": "typescript-plugin-css-modules" }]
   },
   "include": ["./src/**/*"]
 }
