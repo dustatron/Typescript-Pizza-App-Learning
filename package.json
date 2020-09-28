@@ -17,6 +17,7 @@
     "@babel/preset-env": "^7.11.5",
     "@babel/preset-react": "^7.10.4",
     "@babel/preset-typescript": "^7.10.4",
+    "@svgr/webpack": "^5.4.0",
     "@types/react": "^16.9.49",
     "@types/react-dom": "^16.9.8",
     "css-loader": "^4.3.0",
@@ -32,6 +33,7 @@
   "dependencies": {
     "babel-loader": "^8.1.0",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "react-icons": "^3.11.0"
   }
 }
