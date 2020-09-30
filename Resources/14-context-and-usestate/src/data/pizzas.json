@@ -15,8 +15,7 @@
     "id": 3,
     "name": "Caprese",
     "description": "Fresh mozzarella, tomatoes, basil and balsamic vinegar.",
-    "price": 10.99,
-    "SpecialOffer": true
+    "price": 14.99
   },
   {
     "id": 4,

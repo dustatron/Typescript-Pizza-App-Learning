@@ -1,7 +1,7 @@
-import React from "react";
-import { FiShoppingCart } from "react-icons/fi";
-import CartCSS from "./Cart.module.css";
-import { AppStateContext } from "./AppState";
+import React from 'react';
+import { FiShoppingCart } from 'react-icons/fi';
+import CartCSS from './Cart.module.css';
+import { AppStateContext } from './AppState';
 
 interface Props {}
 
@@ -18,29 +18,37 @@ class Cart extends React.Component<Props, State> {
   }
 
   handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    this.setState((prevValue) => ({ isOpen: !prevValue.isOpen }));
+    // if ((e.target as HTMLElement).nodeName === 'SPAN') {
+    //   (e.target as HTMLSpanElement).;
+    // }
+    this.setState((prevState) => ({ isOpen: !prevState.isOpen }));
   };
 
   render() {
     return (
       <AppStateContext.Consumer>
         {(state) => {
-          const itemsCount = state.cart.items.reduce((sum, item) => {
-            return sum + item.quantity;
-          }, 0);
-
           return (
             <div className={CartCSS.cartContainer}>
-              <button className={CartCSS.button} type="button" onClick={this.handleClick}>
+              <button
+                className={CartCSS.button}
+                type="button"
+                onClick={this.handleClick}
+              >
                 <FiShoppingCart />
-                <span>{state.cart.items.length === 1 ? `${state.cart.items.length} Pizza` : `${itemsCount} Pizzas`} </span>
+                <span>{state.cart.items.length} pizza(s)</span>
               </button>
-              <div className={CartCSS.cartDropDown} style={{ display: this.state.isOpen ? "block" : "none" }}>
+              <div
+                className={CartCSS.cartDropDown}
+                style={{
+                  display: this.state.isOpen ? 'block' : 'none',
+                }}
+              >
                 <ul>
                   {state.cart.items.map((item) => {
                     return (
                       <li key={item.id}>
-                        {item.name} | {item.quantity}
+                        {item.name} &times; {item.quantity}
                       </li>
                     );
                   })}
