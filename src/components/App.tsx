@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import pizzas from "../data/pizzas.json";
 import PizzaItem from "./Pizza";
 import ClearCartButton from "./ClearCartButton";
@@ -10,6 +10,17 @@ import SpecialOffer from "./SpecialOffer";
 
 const App = () => {
   const specialOfferPizza = pizzas.find((pizza) => pizza.SpecialOffer);
+
+  // this is an example of achiving componentDidMount and componentWillUnmount
+  // useEffect(() => {
+  //   const listener = () => {
+  //     alert("Hello");
+  //   };
+  //   document.addEventListener("mousedown", listener);
+  //   return () => {
+  //     document.removeEventListener("mousedown", listener);
+  //   };
+  // }, []);
 
   console.log("special", specialOfferPizza);
   return (
