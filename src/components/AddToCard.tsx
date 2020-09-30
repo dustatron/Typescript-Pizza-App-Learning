@@ -7,6 +7,8 @@ export interface AddToCartProps {
   addToCart: (item: Omit<CartItem, "quantity">) => void;
 }
 
+export interface ClearTheCart {}
+
 export function withAddToCard<OriginalProps extends AddToCartProps>(ChildComponent: React.ComponentType<OriginalProps>) {
   const AddTpCartHOC = (props: Omit<OriginalProps, keyof AddToCartProps>) => {
     const dispatch = useStateDispatch();
@@ -40,6 +42,7 @@ export const WithAddToCardProps: React.FC<{ children: (props: AddToCartProps) =>
   return children({ addToCart });
 };
 
+// Hook
 export const useAddToCart = () => {
   const dispatch = useStateDispatch();
   const addToCart: AddToCartProps["addToCart"] = (item) => {

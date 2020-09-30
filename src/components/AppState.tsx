@@ -27,15 +27,15 @@ interface Action<T> {
   type: T;
 }
 
-interface AddToCartAction extends Action<"ADD_TO_CART"> {
-  payload: {
-    item: Omit<CartItem, "quantity">;
-  };
-}
-
 interface initializeCartAction extends Action<"INITIALIZE_CART"> {
   payload: {
     cart: AppStateValue["cart"];
+  };
+}
+
+interface AddToCartAction extends Action<"ADD_TO_CART"> {
+  payload: {
+    item: Omit<CartItem, "quantity">;
   };
 }
 
@@ -63,7 +63,6 @@ const reducer = (state: AppStateValue, action: AddToCartAction | initializeCartA
   } else if (action.type === "INITIALIZE_CART") {
     return { ...state, cart: action.payload.cart };
   }
-
   return state;
 };
 
