@@ -1,6 +1,7 @@
 import React from "react";
 import pizzas from "../data/pizzas.json";
 import PizzaItem from "./Pizza";
+import ClearCartButton from "./ClearCartButton";
 import AppCSS from "./App.module.css";
 import PizzaSVG from "../svg/pizza.svg";
 import Cart from "./Cart";
@@ -20,6 +21,7 @@ const App = () => {
           <Cart />
         </div>
 
+        <ClearCartButton />
         {specialOfferPizza && <SpecialOffer pizza={specialOfferPizza} />}
 
         <ul className={AppCSS.pizzaList}>

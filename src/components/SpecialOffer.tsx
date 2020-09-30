@@ -1,24 +1,27 @@
 import React from "react";
-import { useStateDispatch } from "./AppState";
 import { Pizza } from "../types";
 import SpecialCSS from "./SpecialOffer.module.css";
+import { WithAddToCardProps } from "./AddToCard";
 
 interface Props {
   pizza: Pizza;
 }
 
 const SpecialOffer: React.FC<Props> = ({ pizza }) => {
-  const dispatch = useStateDispatch();
-
-  const handleAddToCartClick = () => {};
   return (
     <div className={SpecialCSS.container}>
       <h2>{pizza.name}</h2>
       <p>{pizza.description}</p>
       <p>{pizza.price}</p>
-      <button type="button" onClick={handleAddToCartClick}>
-        Add Pizza
-      </button>
+      <WithAddToCardProps>
+        {({ addToCart }) => {
+          return (
+            <button type="button" onClick={() => addToCart({ id: pizza.id, name: pizza.name, price: pizza.price })}>
+              Add Pizza
+            </button>
+          );
+        }}
+      </WithAddToCardProps>
     </div>
   );
 };
