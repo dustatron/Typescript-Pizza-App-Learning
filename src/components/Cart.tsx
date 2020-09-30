@@ -21,6 +21,12 @@ class Cart extends React.Component<Props, State> {
     this.setState((prevValue) => ({ isOpen: !prevValue.isOpen }));
   };
 
+  componentDidMount() {
+    document.addEventListener("mousedown", () => {
+      this.setState({ isOpen: false });
+    });
+  }
+
   render() {
     return (
       <AppStateContext.Consumer>
